@@ -30,7 +30,21 @@ class Create extends React.Component {
       alert('A Movie was submitted: ' + this.state.Title + " " + this.state.Year + " at " + this.state.Poster);
       event.preventDefault();
 
-      Axios.post();
+      const movieObject = {
+          title: this.state.Title,
+          year: this.state.Year,
+          poster: this.state.Poster
+      };
+
+      Axios.post('http://localhost:4000/api/movies', movieObject)
+      .then()
+      .catch();
+
+      this.setState({Title:'', 
+                    Year:'',
+                    Poster:''
+      });
+
     }
   
     render() {
