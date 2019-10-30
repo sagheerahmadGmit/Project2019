@@ -7,7 +7,7 @@ class Movies extends React.Component {
   render() {
     return this.props.myMovies.map((movie)=>{
         console.log(movie);
-        return <MovieItems key={movie.Poster} movie={movie}></MovieItems>
+        return <MovieItems key={movie.poster} movie={movie}></MovieItems>
     });
   }
 }
