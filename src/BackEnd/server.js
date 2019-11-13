@@ -62,6 +62,17 @@ app.post('/api/movies',  (req, res) =>{
     res.json('Data Uploaded');  
 });
 
+app.put('/api/movies/:id', (req, res) =>{
+    console.log("Edit: " + req.params.id);
+
+    MovieModel.findByIdAndUpdate(req.params.id, 
+        req.body,
+        {new: true},
+        (error, data)=>{
+            res.json(data);
+        })
+})
+
 app.delete('/api/movies/:id', (req, res) =>{
     console.log(req.params.id);
 
