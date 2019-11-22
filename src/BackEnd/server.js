@@ -26,16 +26,16 @@ app.use(bodyParser.json());
 
 const Schema = mongoose.Schema;
 
-const movieSchema = new Schema({
-    title: String,
-    year: String,
-    poster: String
+const carSchema = new Schema({
+    carName: String,
+    carYear: String,
+    carImg: String
 
 })
 
-const MovieModel = mongoose.model('Movie', movieSchema);
+const CarModel = mongoose.model('Car', carSchema);
 
-app.get('/', (req, res) => res.send('Hello World!'))
+app.get('/', (req, res) => res.send('This is the server!'))
 
 app.get('/whatever', (req, res) => {
     res.send('Hello to Whatever!')
@@ -46,26 +46,26 @@ app.get('/hello/:name', (req, res) =>{
     res.send('Hello ' + req.params.name)
 });
 
-app.post('/api/movies',  (req, res) =>{
+app.post('/api/cars',  (req, res) =>{
     console.log(req.body);    
-    console.log(req.body.title);    
-    console.log(req.body.year);    
-    console.log(req.body.poster);  
+    console.log(req.body.carName);    
+    console.log(req.body.carYear);    
+    console.log(req.body.carImg);  
 
-    MovieModel.create({
-        title: req.body.title,
-        year: req.body.year,
-        poster: req.body.poster
+    CarModel.create({
+        carName: req.body.carName,
+        carYear: req.body.carYear,
+        carImg: req.body.carImg
     
     });
 
     res.json('Data Uploaded');  
 });
 
-app.put('/api/movies/:id', (req, res) =>{
+app.put('/api/cars/:id', (req, res) =>{
     console.log("Edit: " + req.params.id);
 
-    MovieModel.findByIdAndUpdate(req.params.id, 
+    CarModel.findByIdAndUpdate(req.params.id, 
         req.body,
         {new: true},
         (error, data)=>{
@@ -73,45 +73,30 @@ app.put('/api/movies/:id', (req, res) =>{
         })
 })
 
-app.delete('/api/movies/:id', (req, res) =>{
+app.delete('/api/cars/:id', (req, res) =>{
     console.log(req.params.id);
 
-    MovieModel.deleteOne({_id: req.params.id}, (error,data) =>{
+    CarModel.deleteOne({_id: req.params.id}, (error,data) =>{
         if(error)
             res.json(error);
         res.json(data);
     });
 });
 
-app.get('/api/movies/:id', (req, res)=>{
+app.get('/api/cars/:id', (req, res)=>{
     console.log(req.params.id);
 
-    MovieModel.findById(req.params.id, (error, data)=>{
+    CarModel.findById(req.params.id, (error, data)=>{
         res.json(data);
     });
 
 });
 
-app.get('/api/movies', (req, res) =>{
+app.get('/api/cars', (req, res) =>{
 
-    MovieModel.find((error,data)=>{
+    CarModel.find((error,data)=>{
         res.json(data);
     });
-
-    // const myMovies = [
-    //     {
-    //     "Title":"Avengers: Infinity War",
-    //     "Year":"2018",
-    //     "Poster":"https://m.media-amazon.com/images/M/MV5BMjMxNjY2MDU1OV5BMl5BanBnXkFtZTgwNzY1MTUwNTM@._V1_SX300.jpg"
-    //     },
-    //     {
-    //     "Title":"Captain America: Civil War",
-    //     "Year":"2016",
-    //     "Poster":"https://m.media-amazon.com/images/M/MV5BMjQ0MTgyNjAxMV5BMl5BanBnXkFtZTgwNjUzMDkyODE@._V1_SX300.jpg"
-    //     }
-    //     ]
-
-    // res.status(200).json({movies:myMovies, message: 'Operation Completed Successfully!'});
 
 });
 

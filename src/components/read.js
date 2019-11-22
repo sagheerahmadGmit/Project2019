@@ -1,20 +1,20 @@
 import React from 'react';
 import '../App.css';
-import Movies from './movies';
+import Cars from './cars';
 import axios from 'axios';
 
 class Read extends React.Component {
 
     state={
-            movies: [
+            cars: [
                
                 ]          
     };
 
     componentDidMount() {
-            axios.get('http://localhost:4000/api/movies')
+            axios.get('http://localhost:4000/api/cars')
             .then((response) =>{
-              this.setState({movies: response.data})
+              this.setState({cars: response.data})
             })
             .catch((error)=>{
               console.log(error);
@@ -23,10 +23,9 @@ class Read extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="App">
         <h2>Hello from Read Component.</h2>
-
-        <Movies myMovies={this.state.movies}></Movies>
+        <Cars myCars={this.state.cars}></Cars>
       </div>
     );
   }

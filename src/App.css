@@ -1,5 +1,21 @@
 .App {
   text-align: center;
+  font-weight: bold;
+  color: black;
+}
+
+.HomeApp {
+  text-align: center;
+  width: 1200px;
+  color: white;
+}
+
+.footer {
+  text-align: center;
+  background-color: #343a40;
+  margin: auto;
+  width: 1200px;
+  color: white;
 }
 
 .App-logo {
@@ -15,8 +31,35 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  text-align: center;
 }
 
 .App-link {
   color: #09d3ac;
+}
+
+.createApp{
+  text-align: center;
+  font-weight: bold;
+  margin: auto;
+  width: 50%;
+  color: white;
+}
+
+.background{
+  background-color: black;
+}
+
+.modalShow{
+  margin: auto;
+  width: 100%;
+  color: black;
+}
+
+.mr-auto{
+  margin: auto;
+  width: 500px;
+  color: black;
+  font-weight: bold;
+  font-size: 15px;
 }

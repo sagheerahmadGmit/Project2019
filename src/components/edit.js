@@ -3,77 +3,77 @@ import axios from 'axios';
 
 class Edit extends React.Component{
 
-    constructor(props) {
-        super(props);
-        this.state = {Title: '', Year: '', Poster: ''};
-    
-        this.handleChangeMovieTitle = this.handleChangeMovieTitle.bind(this);
-        this.handleYear = this.handleYear.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
-        this.handleChangeMoviePoster = this.handleChangeMoviePoster.bind(this);
-      }
+  constructor(props) {
+    super(props);
+    this.state = {CarName: '', CarYear: '', CarImg: ''};
 
-      handleChangeMovieTitle(event) {
-        this.setState({Title: event.target.value});
-      }
-  
-      handleChangeMoviePoster(event) {
-        this.setState({Poster: event.target.value});
-      }
-  
-      handleYear(event) {
-        this.setState({Year: event.target.value});
-      }
-    
-      handleSubmit(event) {
-        alert('A Movie was updated: ' + this.state.Title + " " + this.state.Year + " at " + this.state.Poster);
-        event.preventDefault();
-  
-        const movieObject = {
-            title: this.state.Title,
-            year: this.state.Year,
-            poster: this.state.Poster
-        };
+    this.handleChangeCarName = this.handleChangeCarName.bind(this);
+    this.handleCarYear = this.handleCarYear.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleChangeCarImg = this.handleChangeCarImg.bind(this);
+  }
 
-        axios.put('http://localhost:4000/api/movies/' + this.state._id, movieObject)
-        .then()
-        .catch();
+  handleChangeCarName(event) {
+    this.setState({CarName: event.target.value});
+  }
 
-  
-        this.setState({Title:'', 
-                      Year:'',
-                      Poster:''
-        });
-  
-      }
+  handleChangeCarImg(event) {
+    this.setState({CarImg: event.target.value});
+  }
+
+  handleCarYear(event) {
+    this.setState({CarYear: event.target.value});
+  }
+
+  handleSubmit(event) {
+    alert('This car has been Updated: ' + this.state.CarName + " " + this.state.CarYear + " at " + this.state.CarImg);
+    event.preventDefault();
+
+    const carObject = {
+        carName: this.state.CarName,
+        carYear: this.state.CarYear,
+        carImg: this.state.CarImg
+    };
+
+    axios.put('http://localhost:4000/api/cars/' + this.state._id, carObject)
+    .then()
+    .catch();
+
+    this.setState({CarName:'', 
+                  CarYear:'',
+                  carImg:''
+    });
+
+  }
 
 
     componentDidMount(){
         alert(this.props.match.params.id)
-        axios.get('http://localhost:4000/api/movies/' + this.props.match.params.id)
+        axios.get('http://localhost:4000/api/cars/' + this.props.match.params.id)
         .then((response)=>{
             this.setState({
                 _id: response.data._id,
-                Title: response.data.title,
-                Year: response.data.year,
-                Poster: response.data.poster
+                CarName: response.data.carName,
+                CarYear: response.data.carYear,
+                carImg: response.data.carImg
             })
         })
         .catch();
     }
 
     render(){
-        return(
-            <form onSubmit={this.handleSubmit}>
+      return (
+        <div>
+          <form onSubmit={this.handleSubmit}>
 
             <div className="form-group">
               <label>
-                Movie Title: 
+                Car Name: 
                 </label>
                 <input type="text" 
                 className='form-control' 
-                value={this.state.Title} 
-                onChange={this.handleChangeMovieTitle} />
+                value={this.state.CarName} 
+                onChange={this.handleChangeCarName} />
             </div>
 
             <div className="form-group">
@@ -81,24 +81,25 @@ class Edit extends React.Component{
                 Year: 
                 </label>
                 <input type="text"  className='form-control'
-                value={this.state.Year} 
-                onChange={this.handleYear} />
+                value={this.state.CarYear} 
+                onChange={this.handleCarYear} />
             </div>
             
             <div>
             <label>
-                Poster URL: 
+                Link to the image of the car: 
                 </label>
                 <textarea rows="3" className='form-control'
-                value={this.state.Poster} 
-                onChange={this.handleChangeMoviePoster} />
+                value={this.state.CarImg} 
+                onChange={this.handleChangeCarImg} />
             </div>
 
             <div>
             <input type="submit" value="Submit" />
             </div>
           </form>
-        );
+        </div>
+      );
     }
 
 }

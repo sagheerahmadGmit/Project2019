@@ -6,7 +6,7 @@ import Footer from './components/footer';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Navbar, Nav } from 'react-bootstrap';
-import {BrowserRouter as Router, Route, Switch, Link} from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 import { create } from 'domain';
 import Create from './components/create';
 import Read from './components/read';
@@ -16,29 +16,43 @@ class App extends React.Component {
   render() {
     return (
       <Router>
-      <div className="App">
+        <div className="background">
+          <div className="App" className="center">
+            <br />
+            <Navbar bg="transparent" variant="dark" sticky="top">
+              <Navbar.Brand href="/">AutoTrader</Navbar.Brand>
+              <Nav className="mr-auto">
+                <Nav.Link href="/">Home</Nav.Link>
+                <Nav.Link href="/read">Buy a Car</Nav.Link>
+                <Nav.Link href="/create">Sell a Car</Nav.Link>
+                <Nav.Link href="/create">About Us</Nav.Link>
+                <Nav.Link href="/create">Contact Us</Nav.Link>
+              </Nav>
+            </Navbar>
+            <br />
+            <Switch>
+              <Route exact path="/" component={Content} />
+              <Route path="/read" component={Read} />
+              <Route path="/create" component={Create} />
+              <Route path="/edit/:id" component={Edit} />
+            </Switch>
 
-        <Navbar bg="primary" variant="dark">
-          <Nav className="mr-auto">
-            <Nav.Link href="/">Home</Nav.Link>
-            <Nav.Link href="/read">Read</Nav.Link>
-            <Nav.Link href="/create">Create</Nav.Link>
-          </Nav>
-        </Navbar>
+          </div>
 
-        <Switch>
-          <Route exact path="/" component={Content} />
-          <Route path="/read" component={Read} />
-          <Route path="/create" component={Create} />
-          <Route path="/edit/:id" component={Edit} />
-        </Switch>
+          <br /><br />
+          <footer className="footer">
+            <div>
+              <h5>Car Retailer</h5>
+              <span>&copy; 2019 Data Representation Project</span>
+            </div>
+            <div className="ml-auto">
+              <marquee behavior="scroll" direction="right" >The best prices around! Buy a car and you will not be dissapointed.</marquee>
+            </div>
+          </footer>
 
-        {/* <Header></Header>
-        <Content></Content>
-        <Footer></Footer> */}
-
-      </div>
+        </div>
       </Router>
+
     );
   }
 }
