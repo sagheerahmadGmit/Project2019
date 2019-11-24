@@ -14,7 +14,7 @@
   text-align: center;
   background-color: #343a40;
   margin: auto;
-  width: 1200px;
+  width: 1100px;
   color: white;
 }
 
@@ -62,4 +62,13 @@
   color: black;
   font-weight: bold;
   font-size: 15px;
+}
+
+.contact{
+  background-color: gray;
+}
+
+.form-group{
+  width: 500px;
+  margin: auto;
 }

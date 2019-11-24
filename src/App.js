@@ -11,6 +11,8 @@ import { create } from 'domain';
 import Create from './components/create';
 import Read from './components/read';
 import Edit from './components/edit';
+import AboutUs from './components/aboutUs';
+import Contact from './components/contact';
 
 class App extends React.Component {
   render() {
@@ -25,8 +27,8 @@ class App extends React.Component {
                 <Nav.Link href="/">Home</Nav.Link>
                 <Nav.Link href="/read">Buy a Car</Nav.Link>
                 <Nav.Link href="/create">Sell a Car</Nav.Link>
-                <Nav.Link href="/create">About Us</Nav.Link>
-                <Nav.Link href="/create">Contact Us</Nav.Link>
+                <Nav.Link href="/aboutUs">About Us</Nav.Link>
+                <Nav.Link href="/contact">Contact Us</Nav.Link>
               </Nav>
             </Navbar>
             <br />
@@ -35,6 +37,8 @@ class App extends React.Component {
               <Route path="/read" component={Read} />
               <Route path="/create" component={Create} />
               <Route path="/edit/:id" component={Edit} />
+              <Route path="/aboutUs" component={AboutUs} />
+              <Route path="/contact" component={Contact} />
             </Switch>
 
           </div>

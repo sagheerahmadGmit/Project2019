@@ -48,6 +48,7 @@ class CarItems extends React.Component {
                             <blockquote className="blockquote mb-0">
                                 <img src={this.props.car.carImg} width="400px"></img>
                                 <footer>{this.props.car.carYear}</footer>
+                                <footer>{this.props.car.carPrice}</footer>
                             </blockquote>
                         </Modal.Body>
 

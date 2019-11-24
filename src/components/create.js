@@ -6,12 +6,13 @@ class Create extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = { CarName: '', CarYear: '', CarImg: '' };
+    this.state = { CarName: '', CarYear: '', CarPrice: '',CarImg: '' };
 
     this.handleChangeCarName = this.handleChangeCarName.bind(this);
     this.handleCarYear = this.handleCarYear.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChangeCarImg = this.handleChangeCarImg.bind(this);
+    this.handleCarPrice = this.handleCarPrice.bind(this);
   }
 
   handleChangeCarName(event) {
@@ -26,14 +27,19 @@ class Create extends React.Component {
     this.setState({ CarYear: event.target.value });
   }
 
+  handleCarPrice(event){
+    this.setState({ CarPrice: event.target.value });
+  }
+
   handleSubmit(event) {
-    alert('Your Car has been added to the shop floor: ' + this.state.CarName + " " + this.state.CarYear + " at " + this.state.CarImg);
+    alert('Your Car has been added to the shop floor!');
     event.preventDefault();
 
     const carObject = {
       carName: this.state.CarName,
       carYear: this.state.CarYear,
-      carImg: this.state.CarImg
+      carImg: this.state.CarImg,
+      carPrice: this.state.CarPrice
     };
 
     Axios.post('http://localhost:4000/api/cars', carObject)
@@ -43,7 +49,8 @@ class Create extends React.Component {
     this.setState({
       CarName: '',
       CarYear: '',
-      carImg: ''
+      CarImg: '',
+      CarPrice: ''
     });
 
   }
@@ -70,6 +77,15 @@ class Create extends React.Component {
             <input type="text" className='form-control'
               value={this.state.CarYear}
               onChange={this.handleCarYear} />
+          </div>
+
+          <div className="form-group">
+            <label>
+              Price:
+                </label>
+            <input type="text" className='form-control'
+              value={this.state.CarPrice}
+              onChange={this.handleCarPrice} />
           </div>
 
           <div>

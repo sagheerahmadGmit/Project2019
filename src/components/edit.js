@@ -1,16 +1,18 @@
 import React from 'react';
 import axios from 'axios';
+import { link } from 'fs';
 
 class Edit extends React.Component{
 
   constructor(props) {
     super(props);
-    this.state = {CarName: '', CarYear: '', CarImg: ''};
+    this.state = { CarName: '', CarYear: '', CarPrice: '',CarImg: '' };
 
     this.handleChangeCarName = this.handleChangeCarName.bind(this);
     this.handleCarYear = this.handleCarYear.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChangeCarImg = this.handleChangeCarImg.bind(this);
+    this.handleCarPrice = this.handleCarPrice.bind(this);
   }
 
   handleChangeCarName(event) {
@@ -25,8 +27,13 @@ class Edit extends React.Component{
     this.setState({CarYear: event.target.value});
   }
 
+  handleCarPrice(event){
+    this.setState({ CarPrice: event.target.value });
+  }
+
   handleSubmit(event) {
-    alert('This car has been Updated: ' + this.state.CarName + " " + this.state.CarYear + " at " + this.state.CarImg);
+    alert('The car details have been Updated!');
+
     event.preventDefault();
 
     const carObject = {
@@ -39,9 +46,11 @@ class Edit extends React.Component{
     .then()
     .catch();
 
-    this.setState({CarName:'', 
-                  CarYear:'',
-                  carImg:''
+    this.setState({
+      CarName: '',
+      CarYear: '',
+      CarImg: '',
+      CarPrice: ''
     });
 
   }
@@ -55,7 +64,8 @@ class Edit extends React.Component{
                 _id: response.data._id,
                 CarName: response.data.carName,
                 CarYear: response.data.carYear,
-                carImg: response.data.carImg
+                CarImg: response.data.carImg,
+                CarPrice: response.data.carPrice
             })
         })
         .catch();
@@ -83,6 +93,15 @@ class Edit extends React.Component{
                 <input type="text"  className='form-control'
                 value={this.state.CarYear} 
                 onChange={this.handleCarYear} />
+            </div>
+
+            <div className="form-group">
+              <label>
+                Price: 
+                </label>
+                <input type="text"  className='form-control'
+                value={this.state.CarPrice} 
+                onChange={this.handleCarPrice} />
             </div>
             
             <div>
