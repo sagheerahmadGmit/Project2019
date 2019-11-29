@@ -47,15 +47,6 @@ const QueryModel = mongoose.model('Query', querySchema);
 
 app.get('/', (req, res) => res.send('This is the server!'))
 
-app.get('/whatever', (req, res) => {
-    res.send('Hello to Whatever!')
-});
-
-app.get('/hello/:name', (req, res) =>{
-    console.log(req.params.name);
-    res.send('Hello ' + req.params.name)
-});
-
 app.post('/api/cars',  (req, res) =>{
     console.log(req.body);    
     console.log(req.body.carName);    

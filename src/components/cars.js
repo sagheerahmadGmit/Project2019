@@ -8,7 +8,8 @@ class Cars extends React.Component {
   render() {
     return this.props.myCars.map((car)=>{
         console.log(car);
-        return <CarItems key={car.carImg} car={car}></CarItems>
+        return <CarItems key={car._id} car={car}
+        ReloadDataMethod={this.props.ReloadDataMethod}></CarItems>
     });
   }
 }

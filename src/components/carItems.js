@@ -5,6 +5,9 @@ import Button from 'react-bootstrap/Button';
 import Axios from 'axios';
 import { Link } from 'react-router-dom';
 import Modal from 'react-bootstrap/Modal';
+import App from '../App';
+import Read from './read';
+import Cars from './cars';
 
 class CarItems extends React.Component {
 
@@ -19,25 +22,15 @@ class CarItems extends React.Component {
         alert("Thank you for Purchasing a brand new car!");
 
         Axios.delete('http://localhost:4000/api/cars/' + this.props.car._id)
-            .then()
+            .then(() => {
+                this.props.ReloadDataMethod();
+            })
             .catch();
     }
 
     render() {
         return (
             <div className="createApp">
-
-                {/* <Card border="primary">
-                    <Card.Header border="primary">{this.props.car.carName}</Card.Header>
-                    <Card.Body>
-                        <blockquote className="blockquote mb-0">
-                            <img src={this.props.car.carImg} width="500px"></img>
-                            <footer>{this.props.car.carYear}</footer>
-                        </blockquote>
-                    </Card.Body>
-                    <Button variant="danger" onClick={this.DeleteCar}>Delete</Button>
-                    <Link to={"/edit/" + this.props.car._id} className="btn btn-primary">Edit</Link>
-                </Card> */}
                 <div className="modalShow">
                     <Modal.Dialog>
                         <Modal.Header closeButton>
@@ -53,7 +46,7 @@ class CarItems extends React.Component {
                         </Modal.Body>
 
                         <Modal.Footer>
-                            <Button variant="danger" onClick={this.DeleteCar}>Delete</Button>
+                            <Button variant="danger" onClick={this.DeleteCar}>Buy</Button>
                             <Link to={"/edit/" + this.props.car._id} className="btn btn-primary">Edit</Link>
                         </Modal.Footer>
                     </Modal.Dialog>

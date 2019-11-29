@@ -39,7 +39,8 @@ class Edit extends React.Component{
     const carObject = {
         carName: this.state.CarName,
         carYear: this.state.CarYear,
-        carImg: this.state.CarImg
+        carImg: this.state.CarImg,
+        carPrice: this.state.CarPrice
     };
 
     axios.put('http://localhost:4000/api/cars/' + this.state._id, carObject)
@@ -73,7 +74,7 @@ class Edit extends React.Component{
 
     render(){
       return (
-        <div>
+        <div className="HomeApp">
           <form onSubmit={this.handleSubmit}>
 
             <div className="form-group">
@@ -112,7 +113,7 @@ class Edit extends React.Component{
                 value={this.state.CarImg} 
                 onChange={this.handleChangeCarImg} />
             </div>
-
+            <br/>
             <div>
             <input type="submit" value="Submit" />
             </div>

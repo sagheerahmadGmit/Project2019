@@ -7,7 +7,8 @@ class Content extends React.Component {
     return (
 
       <div className="HomeApp">
-        <h1>Welcome to my Project!</h1>
+        <h1>AutoTrader - Best Cars Around!</h1>
+        <br/>
         <Carousel>
           <Carousel.Item>
             <a href="/read">

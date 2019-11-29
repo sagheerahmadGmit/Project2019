@@ -13,8 +13,10 @@ import Read from './components/read';
 import Edit from './components/edit';
 import AboutUs from './components/aboutUs';
 import Contact from './components/contact';
+import Logo from './images/logo1.png'
 
 class App extends React.Component {
+
   render() {
     return (
       <Router>
@@ -22,7 +24,16 @@ class App extends React.Component {
           <div className="App" className="center">
             <br />
             <Navbar bg="transparent" variant="dark" sticky="top">
-              <Navbar.Brand href="/">AutoTrader</Navbar.Brand>
+              <Navbar.Brand href="/">
+                <img
+                  alt=""
+                  src= {Logo}
+                  width="30"
+                  height="30"
+                  className="d-inline-block align-top"
+                />{' '}
+                AutoTrader
+              </Navbar.Brand>
               <Nav className="mr-auto">
                 <Nav.Link href="/">Home</Nav.Link>
                 <Nav.Link href="/read">Buy a Car</Nav.Link>

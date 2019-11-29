@@ -37,7 +37,7 @@ class Contact extends React.Component {
 
         const carObject = {
             name: this.state.Name,
-            emial: this.state.Email,
+            email: this.state.Email,
             phone: this.state.Phone,
             query: this.state.Query
         };
@@ -57,7 +57,7 @@ class Contact extends React.Component {
 
     render() {
         return (
-            <div className="App">
+            <div className="HomeApp">
 
                 <a href="/">
                     <img
