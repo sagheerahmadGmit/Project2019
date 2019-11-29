@@ -26,7 +26,7 @@ class App extends React.Component {
             <Navbar bg="transparent" variant="dark" sticky="top">
               <Navbar.Brand href="/">
                 <img
-                  alt=""
+                  alt="logo"
                   src= {Logo}
                   width="30"
                   height="30"
@@ -58,7 +58,27 @@ class App extends React.Component {
           <footer className="footer">
             <div>
               <h5>Car Retailer</h5>
-              <span>&copy; 2019 Data Representation Project</span>
+              <span>&copy; 2019 Data Representation Project</span><br/>
+              <Navbar.Brand href="/contact">
+                <img
+                  alt="logo"
+                  src= "https://img.favpng.com/23/15/11/elitte-institute-of-engineering-and-management-telephone-photon-quest-technologies-insurance-management-associates-customer-service-png-favpng-dzeHyS6YJkyVqBrV0m2vgNb8L_t.jpg"
+                  width="50"
+                  height="50"
+                  className="d-inline-block align-top"
+                />{' '}
+                Contact Us
+              </Navbar.Brand>
+              <Navbar.Brand href="/aboutUs">
+                <img
+                  alt="logo"
+                  src= "https://www.pngfind.com/pngs/m/191-1915128_about-us-png-haryana-education-society-transparent-png.png"
+                  width="50"
+                  height="50"
+                  className="d-inline-block align-top"
+                />{' '}
+                About Us
+              </Navbar.Brand>
             </div>
             <div className="ml-auto">
               <marquee behavior="scroll" direction="right" >The best prices around! Buy a car and you will not be dissapointed.</marquee>
