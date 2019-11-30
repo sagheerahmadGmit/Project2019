@@ -6,8 +6,10 @@ class Contact extends React.Component {
 
     constructor(props) {
         super(props);
+        //Variable names
         this.state = { Name: '', Email: '', Phone: '', Query: '' };
 
+        // functions to get the required information
         this.handleName = this.handleName.bind(this);
         this.handleEmail = this.handleEmail.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -15,26 +17,32 @@ class Contact extends React.Component {
         this.handlePhone = this.handlePhone.bind(this);
     }
 
+    //set the name
     handleName(event) {
         this.setState({ Name: event.target.value });
     }
 
+    //set the query
     handleQuery(event) {
         this.setState({ Query: event.target.value });
     }
 
+    //set the email
     handleEmail(event) {
         this.setState({ Email: event.target.value });
     }
 
+    //set the Phone
     handlePhone(event) {
         this.setState({ Phone: event.target.value });
     }
 
+    //submit the query to the server
     handleSubmit(event) {
         alert('Your Query has been successfully recieved and we will contact you shortly.');
         event.preventDefault();
 
+        //carObject to save all the details
         const carObject = {
             name: this.state.Name,
             email: this.state.Email,
@@ -42,10 +50,12 @@ class Contact extends React.Component {
             query: this.state.Query
         };
 
+        //post it to the server
         Axios.post('http://localhost:4000/api/queries', carObject)
             .then()
             .catch();
 
+        //set and update the state
         this.setState({
             Name: '',
             Email: '',
@@ -59,6 +69,7 @@ class Contact extends React.Component {
         return (
             <div className="HomeApp">
 
+                {/* Image of customer service */}
                 <a href="/">
                     <img
                         className="d-block w-100"
@@ -70,8 +81,10 @@ class Contact extends React.Component {
                 </a><br /><br />
 
                 <div className="createApp">
+                    {/* Form to take in the reqired information for contact purposes */}
                     <form onSubmit={this.handleSubmit} className="contact">
 
+                        {/* Enter Name */}
                         <div className="form-group">
                             <label>
                                 Name:
@@ -82,6 +95,7 @@ class Contact extends React.Component {
                                 onChange={this.handleName} />
                         </div>
 
+                        {/* Enter Email */}
                         <div className="form-group">
                             <label>
                                 Email Address:
@@ -92,6 +106,7 @@ class Contact extends React.Component {
                                 onChange={this.handleEmail} />
                         </div>
 
+                        {/* Enter Phone Number */}
                         <div className="form-group">
                             <label>
                                 Phone Number:
@@ -102,6 +117,7 @@ class Contact extends React.Component {
                                 onChange={this.handlePhone} />
                         </div>
 
+                        {/* Enter Query */}
                         <div className="form-group">
                             <label>
                                 What is your Query?:
@@ -112,6 +128,7 @@ class Contact extends React.Component {
                                 onChange={this.handleQuery} />
                         </div><br />
 
+                        {/* Submit all queries to the server once the submit button is pressed */}
                         <div>
                             <input type="submit" value="Submit" />
                         </div>

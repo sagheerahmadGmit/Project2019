@@ -5,8 +5,9 @@ import '../App.css';
 class AboutUs extends React.Component {
     render() {
         return (
+            // className for css
             <div className="HomeApp">
-
+                {/* Image */}
                 <a href="/">
                     <img
                         className="d-block w-100"
@@ -18,7 +19,8 @@ class AboutUs extends React.Component {
                 </a>
                 
                 <br /><br />
-
+                
+                {/* Reviews and information about the website */}
                 <h1>AutoTrader in Ireland</h1><br />
                 <p id="para">This is our first store in Ireland and we are proud to open it in the heart of Dublin City.</p>
                 <br />
@@ -38,7 +40,7 @@ class AboutUs extends React.Component {
                 </p>
             </div>
         );
-    }
+    }//end of class
 }
 
 export default AboutUs;
