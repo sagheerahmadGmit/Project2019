@@ -129,18 +129,4 @@ app.get('/api/queries', (req, res) =>{
 
 });
 
-app.get('/test', (req, res) =>{
-    res.sendFile(path.join(__dirname + '/index.html'));
-});
-
-app.get('/name', (req, res) =>{
-    console.log(req.query.firstname)
-    res.send('Hello ' + req.query.firstname + ' ' + req.query.lastname)
-});
-
-app.post('/name', (req, res) =>{
-    console.log(req.body.firstname)
-    res.send('Post was Successful! Welcome ' + req.body.firstname + ' ' + req.body.lastname)
-});
-
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))

@@ -8,7 +8,7 @@ class Create extends React.Component {
   constructor(props) {
     super(props);
     //set the variables and there states
-    this.state = { CarName: '', CarYear: '', CarPrice: '',CarImg: '' };
+    this.state = { CarName: '', CarYear: '', CarPrice: '', CarImg: '' };
 
     //functions used to create a car object
     this.handleChangeCarName = this.handleChangeCarName.bind(this);
@@ -34,7 +34,7 @@ class Create extends React.Component {
   }
 
   //set the car price
-  handleCarPrice(event){
+  handleCarPrice(event) {
     this.setState({ CarPrice: event.target.value });
   }
 
@@ -69,14 +69,14 @@ class Create extends React.Component {
   render() {
     return (
       <div className="createApp">
-         {/* Form to take in the reqired information for creating a new car object */}
+        {/* Form to take in the reqired information for creating a new car object */}
         <form onSubmit={this.handleSubmit}>
 
           {/* Enter car Name */}
           <div className="form-group">
             <label>
               Car Name:
-                </label>
+            </label>
             <input type="text"
               className='form-control'
               value={this.state.CarName}
@@ -93,7 +93,7 @@ class Create extends React.Component {
               onChange={this.handleCarYear} />
           </div>
 
-           {/* Enter Car Price */}
+          {/* Enter Car Price */}
           <div className="form-group">
             <label>
               Price:
@@ -103,7 +103,7 @@ class Create extends React.Component {
               onChange={this.handleCarPrice} />
           </div>
 
-           {/* Enter Car Image Link */}
+          {/* Enter Car Image Link */}
           <div>
             <label>
               Link to the image of the car:
@@ -115,7 +115,7 @@ class Create extends React.Component {
 
           <br />
 
-           {/* Press the image to submit it and save to the database */}
+          {/* Press the image to submit it and save to the database */}
           <div>
             <input type="submit" value="Submit" />
           </div>
