@@ -1,15 +1,18 @@
+/* CSS for the entire app */
 .App {
   text-align: center;
   font-weight: bold;
   color: black;
 }
 
+/* Home Page */
 .HomeApp {
   text-align: center;
   width: 1200px;
   color: white;
 }
 
+/* Footer under all components */
 .footer {
   text-align: center;
   background-color: #343a40;
@@ -38,6 +41,7 @@
   color: #09d3ac;
 }
 
+/* For The create page */
 .createApp{
   text-align: center;
   font-weight: bold;
@@ -46,10 +50,12 @@
   color: white;
 }
 
+/* background color for the app */
 .background{
   background-color: black;
 }
 
+/* The modal that outputs the image */
 .modalShow{
   margin: auto;
   width: 100%;
@@ -64,6 +70,7 @@
   font-size: 15px;
 }
 
+/* Contact Page */
 .contact{
   background-color: gray;
 }

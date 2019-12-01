@@ -8,7 +8,7 @@ class Content extends React.Component {
 
       <div className="HomeApp">
         <h1>AutoTrader - Best Cars Around!</h1>
-        <br/>
+        <br />
         {/* Carousel used for slideshow */}
         <Carousel>
           {/* Different Images used for slideshow */}
@@ -27,7 +27,7 @@ class Content extends React.Component {
               <h3>Best Prices for Cars.</h3>
             </Carousel.Caption>
           </Carousel.Item>
-           {/* Image 1 */}
+          {/* Image 1 */}
           <Carousel.Item>
             <a href="/read">
               <img
@@ -41,7 +41,7 @@ class Content extends React.Component {
               <h3>No one does it cheaper!</h3>
             </Carousel.Caption>
           </Carousel.Item>
-           {/* Image 1 */}
+          {/* Image 1 */}
           <Carousel.Item>
             <a href="/read">
               <img

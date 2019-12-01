@@ -1,7 +1,6 @@
 import React from 'react';
 import '../App.css';
 
-
 class AboutUs extends React.Component {
     render() {
         return (

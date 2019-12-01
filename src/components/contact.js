@@ -42,8 +42,8 @@ class Contact extends React.Component {
         alert('Your Query has been successfully recieved and we will contact you shortly.');
         event.preventDefault();
 
-        //carObject to save all the details
-        const carObject = {
+        //carQuery to save all the details
+        const carQuery = {
             name: this.state.Name,
             email: this.state.Email,
             phone: this.state.Phone,
@@ -51,7 +51,7 @@ class Contact extends React.Component {
         };
 
         //post it to the server
-        Axios.post('http://localhost:4000/api/queries', carObject)
+        Axios.post('http://localhost:4000/api/queries', carQuery)
             .then()
             .catch();
 
